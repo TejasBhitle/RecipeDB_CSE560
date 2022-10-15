@@ -10,10 +10,29 @@ select * from customer;
 -- Retreiving a receipe with least number of ingredients
 select * from recipe 
 where recipe_id_pk in (
-	select recipe_id_fk, count(ingredient_id_fk) 
+	select recipe_id_fk
 	from recipeingredientpivot 
 	group by recipe_id_fk
 	order by count(ingredient_id_fk) 
-	limit 1;
-)
+	limit 1
+);
 
+
+-- Retreiving incredient names that have carbs present
+select I.Name from ingredient I 
+inner join IngredientNutrientPivot P on I.ingredient_id_pk = P.ingredient_id_fk
+inner join Nutrient N on N.nutrient_id_pk = P.nutrient_id_fk
+where N.name = 'Carbohydrates'
+
+
+-- Selecting all customers that dont eat non veg
+select C.fname, C.lname, L.name as Does_Not_Like 
+from customer C
+inner join allergylabel A on C.cust_id_pk = A.cust_id_fk
+inner join Label L on L.label_id_pk = A.label_id
+where L.name = 'Non Veg'
+
+-- Get all Chicken Recipes
+select name, description, meal_type 
+from recipe 
+where name like '%Chicken%';
