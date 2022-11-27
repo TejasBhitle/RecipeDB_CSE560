@@ -192,35 +192,35 @@ INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Zucchini',
 
 
 -- Creating recipeingredientpivot
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 1, 5, 1);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 2, 5, 1);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 3, 5, 3);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 4, 5, 2);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 5, 5, 30);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 1, 1, 1);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 2, 1, 1);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 3, 1, 3);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 4, 1, 2);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 5, 1, 30);
 
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 6, 6, 400);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 7, 6, 20);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 8, 6, 5);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 2, 6, 2);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 6, 2, 400);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 7, 2, 20);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 8, 2, 5);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 2, 2, 2);
 
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 6, 7, 600);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 9, 7, 1);
-INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 10, 7, 2);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 6, 3, 600);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 9, 3, 1);
+INSERT INTO recipeingredientpivot(ingredient_id_fk, recipe_id_fk, num_of_units) VALUES ( 10, 3, 2);
 
 
 -- Creating recipelabelspivot
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (5, 1);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (5, 2);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (5, 3);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (5, 17);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (1, 1);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (1, 2);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (1, 3);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (1, 17);
 
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 8);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 2);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 12);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (2, 8);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (2, 2);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (2, 12);
 
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 7);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 12);
-INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (6, 13);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (3, 7);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (3, 12);
+INSERT INTO recipelabelspivot(recipe_id_fk, label_id_fk) VALUES (3, 13);
 
 
 -- Creating ingredientnutrientpivot
