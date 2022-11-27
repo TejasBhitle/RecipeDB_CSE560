@@ -1,38 +1,74 @@
 -- Creating Labels
-INSERT INTO label(name) VALUES ('Dairy-Free');
-INSERT INTO label(name) VALUES ('Peanut-Free');
-INSERT INTO label(name) VALUES ('Tree-Nut-Free');
-INSERT INTO label(name) VALUES ('Soy-Free');
-INSERT INTO label(name) VALUES ('Fish-Free');
-INSERT INTO label(name) VALUES ('Shellfish-Free');
-INSERT INTO label(name) VALUES ('Pork-Free');
-INSERT INTO label(name) VALUES ('Red-Meat-Free');
-INSERT INTO label(name) VALUES ('Crustacean-Free');
-INSERT INTO label(name) VALUES ('Celery-Free');
-INSERT INTO label(name) VALUES ('Mustard-Free');
-INSERT INTO label(name) VALUES ('Non Veg');
-INSERT INTO label(name) VALUES ('Mollusk-Free');
-INSERT INTO label(name) VALUES ('Alcohol-Free');
-INSERT INTO label(name) VALUES ('Sulfite-Free');
-INSERT INTO label(name) VALUES ('Vegan');
-INSERT INTO label(name) VALUES ('Vegetarian');
+INSERT INTO label(name) VALUES 
+('Dairy-Free'),
+('Peanut-Free'),
+('Tree-Nut-Free'),
+('Soy-Free'),
+('Fish-Free'),
+('Shellfish-Free'),
+('Pork-Free'),
+('Red-Meat-Free'),
+('Crustacean-Free'),
+('Celery-Free'),
+('Mustard-Free'),
+('Non Veg'),
+('Mollusk-Free'),
+('Alcohol-Free'),
+('Sulfite-Free'),
+('Vegan'),
+('Vegetarian'),
+('Balanced'),
+('High-Fiber'),
+('High-Protein'),
+('Keto'),
+('Kidney friendly'),
+('Kosher'),
+('Low-Carb'),
+('Low-Fat'),
+('Low potassium'),
+('Low-Sodium'),
+('No oil added'),
+('No-sugar'),
+('Paleo'),
+('Pescatarian'),
+('Pork-free'),
+('Red meat-free'),
+('Sugar-conscious');
 
 -- Creating nutrients
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Energy', TRUE,'kcal');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Fat', TRUE,'g');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Sugars', TRUE,'g');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Carbohydrates', TRUE,'g');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Fiber', TRUE,'g');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Vitamin C', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Vitamin A', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Vitamin D', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Water', TRUE,'g');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Cholesterol', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Sodium', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Calcium', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Iron', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Zinc', FALSE,'mg');
-INSERT INTO nutrient(name, is_macro, unit) VALUES ('Phosphorus', FALSE,'mg');
+INSERT INTO nutrient(name, is_macro, unit) VALUES
+('Energy', TRUE,'kcal'),
+('Fat', TRUE,'g'),
+('Sugars', TRUE,'g'),
+('Carbohydrates', TRUE,'g'),
+('Fiber', TRUE,'g'),
+('Vitamin C', FALSE,'mg'),
+('Vitamin A', FALSE,'mg'),
+('Vitamin D', FALSE,'mg'),
+('Water', TRUE,'g'),
+('Cholesterol', FALSE,'mg'),
+('Sodium', FALSE,'mg'),
+('Calcium', FALSE,'mg'),
+('Iron', FALSE,'mg'),
+('Zinc', FALSE,'mg'),
+('Phosphorus', FALSE,'mg'),
+('Saturated', TRUE, 'g'),
+('Trans', TRUE, 'g'),
+('Monounsaturated', TRUE, 'g'),
+('Polyunsaturated', TRUE, 'g'),
+('Protein', TRUE, 'g'),
+('Magnesium', FALSE, 'mg'),
+('Potassium', FALSE, 'mg'),
+('Vitamin A', FALSE, 'mg'),
+('Vitamin C', FALSE, 'mg'),
+('Thiamin (B1)', FALSE, 'mg'),
+('Riboflavin (B2)', FALSE, 'mg'),
+('Niacin (B3)', FALSE, 'mg'),
+('Vitamin B6', FALSE, 'mg'),
+('Folate', FALSE, 'mg'),
+('Vitamin B12', FALSE, 'mg'),
+('Vitamin E', FALSE, 'mg'),
+('Vitamin K', FALSE, 'mg');
 
 
 -- Creating recipe
@@ -76,12 +112,82 @@ INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Lemon Juic
 INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Salt', 5, 'pinch' );
 INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Olive oil', 1, 'tbsp' );
 INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Avocado', 20, 'tbsp' );
-INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chopped Chives', 25, 'unit' );
-INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chicken stock', 40, 'ml' );
-INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Soy sauce', 5, 'tablespoon' );
-INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cornstarch', 2, 'teaspoon' );
-INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Ramen noodles', 40, 'pack' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chopped Chives', 25, 'unit');
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chicken stock', 40, 'ml');
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Soy sauce', 5, 'tablespoon');
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cornstarch', 2, 'teaspoon');
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Ramen noodles', 40, 'pack');
 INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Egg', 25, 'unit' );
+
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Milk', 80, 'litre' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Sugar', 10, 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Potato', 20, 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Garlic', 20, 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Spinach', 20, 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Artichoke', '47', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Arugula', '25', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Asparagus', '20', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Aubergine', '25', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Beetroot', '43', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Bell Pepper', '20', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Black Olives', '115', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Broccoli', '34', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Brussels Sprouts', '43', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cabbage', '25', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Capsicum', '27', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Carrot', '41', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cauliflower', '25', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Celery', '16', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chard', '19', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cherry Tomato', '100', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chicory', '72', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chinese Cabbage', '16', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Chives', '30', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Collard Greens', '32', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Corn', '365', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Courgette', '17', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Creamed Spinach', '74', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Cucumber', '16', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Eggplant', '25', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Endive', '17', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Fennel', '31', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Garlic', '149', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Gherkin', '14', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Gourd', '14', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Green Beans', '31', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Green Olives', '115', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Green Onion', '32', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Horseradish', '48', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Kale', '49', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Kohlrabi', '27', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Kumara', '86', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Leek', '61', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Lettuce', '15', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Mushrooms', '22', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Mustard Greens', '27', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Nori', '35', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Okra', '33', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Olives', '115', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Onion', '40', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Parsnips', '75', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Peas', '81', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Pepper', '27', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Potato', '77', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Pumpkin', '26', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Radishes', '16', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Red Cabbage', '31', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Rutabaga', '38', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Shallots', '72', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Spinach', '23', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Squash', '45', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Sweet Potato', '86', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Tomato', '18', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Turnip Greens', '20', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Turnips', '28', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Wasabi', '109', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Winter Squash', '34', 'unit' );
+INSERT INTO ingredient(name, calorie_per_unit, measure_type) VALUES ('Zucchini', '17', 'unit' );
+
 
 
 
