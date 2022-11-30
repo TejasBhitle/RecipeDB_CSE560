@@ -1,0 +1,34 @@
+-- get recipe containing highest Sugar [optimized working]
+Select R.name
+from recipe R
+inner join RecipeIngredientPivot RIP on R.recipe_id_pk = RIP.recipe_id_fk
+inner join Ingredient I on I.ingredient_id_pk = RIP.ingredient_id_fk
+inner join IngredientNutrientPivot INP on I.ingredient_id_pk = INP.ingredient_id_fk
+inner join Nutrient N on N.nutrient_id_pk = INP.nutrient_id_fk
+where N.name = 'Sugars'
+order by (RIP.num_of_units * INP.quantity) desc
+limit 1
+
+
+-- get recipe containing highest Sugar [unoptimized, not working]
+select R.name from recipe R
+where R.recipe_id_pk in (
+
+    select recipe_id_fk from RecipeIngredientPivot RIP
+    where RIP.ingredient_id_fk in (
+
+        select I.ingredient_id_pk from Ingredient I
+        where I.ingredient_id_pk in (
+
+            select INP.ingredient_id_fk from IngredientNutrientPivot INP 
+            where INP.ingredient_id_fk in (
+                
+                select N.nutrient_id_pk from Nutrient N 
+                where N.name = 'Sugars'
+            )
+        )
+    )
+)
+order by (RIP.num_of_units * INP.quantity) desc
+limit 1
+

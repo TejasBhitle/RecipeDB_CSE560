@@ -1,12 +1,3 @@
-
-select * from nutrient;
-select * from recipe;
-select * from label;
-select * from ingredient;
-select * from customer;
-
-
-
 -- Retreiving a receipe with least number of ingredients
 select * from recipe 
 where recipe_id_pk in (
