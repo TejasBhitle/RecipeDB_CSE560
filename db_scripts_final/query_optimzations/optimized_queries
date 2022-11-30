@@ -83,3 +83,48 @@ where meal_type = 'Full-Meal'
 order by servings desc
 limit 5
 
+-- get perferred recipes for a customer
+select C.fname, C.lname, L.name as Does_Not_Like 
+from customer C
+inner join allergylabel A on C.cust_id_pk = A.cust_id_fk
+inner join Label L on L.label_id_pk = A.label_id
+where L.name = 'Non Veg'
+
+
+-- get recipes for customer with their preferences and without their allergies
+WITH 
+myconstants (cust_id) as (
+   values (1)
+),
+Prefs (prep_time, ingredient_count, calorie_count) AS (
+	select prep_time, ingredient_count, calories_count 
+	from Preferences, myconstants 
+	where cust_id_fk = cust_id
+),
+Calorie_counts (recipe_id, calorie_count) AS (
+	select R.recipe_id_pk, SUM(I.calorie_per_unit * P.num_of_units) as Calorie_Count
+	from Recipe R
+	inner join RecipeIngredientPivot P on R.recipe_id_pk = P.recipe_id_fk
+	inner join Ingredient I on I.ingredient_id_pk = P.ingredient_id_fk
+	group by R.recipe_id_pk
+),
+Ingredient_counts (recipe_id, incredient_count) AS (
+	select RIP.recipe_id_fk, count(ingredient_id_fk) 
+	from recipeingredientpivot RIP
+	group by recipe_id_fk
+)
+select * from recipe R 
+inner join Calorie_counts CC on CC.recipe_id = R.recipe_id_pk
+inner join Ingredient_counts IC on IC.recipe_id = R.recipe_id_pk
+where R.prep_time <= prep_time
+and incredient_count <= IC.incredient_count
+and CC.calorie_count <= calorie_count
+and R.recipe_id_pk not in (
+	select RLP.recipe_id_fk
+	from RecipeLabelsPivot RLP
+	inner join Label L on L.label_id_pk = RLP.label_id_fk
+	inner join Allergylabel A on A.label_id = L.label_id_pk, myconstants
+	where A.cust_id_fk = cust_id
+);
+
+
