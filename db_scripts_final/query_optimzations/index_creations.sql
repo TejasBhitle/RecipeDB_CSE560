@@ -9,3 +9,13 @@ CREATE INDEX allergylabel_idx on allergylabel(cust_id_fk, label_id);
 CREATE INDEX recipelabels_idx on recipelabelspivot(recipe_id_fk, label_id_fk);
 CREATE INDEX preferences_idx on preferences(cust_id_fk);
 
+
+DROP INDEX IF EXISTS recipe_pk_idx;
+DROP INDEX IF EXISTS ingredient_pk_idx;
+DROP INDEX IF EXISTS nutrient_pk_idx;
+DROP INDEX IF EXISTS recipeingredient_idx;
+DROP INDEX IF EXISTS ingredientnutrient_idx;
+DROP INDEX IF EXISTS customer_idx;
+DROP INDEX IF EXISTS allergylabel_idx;
+DROP INDEX IF EXISTS recipelabels_idx;
+DROP INDEX IF EXISTS preferences_idx;

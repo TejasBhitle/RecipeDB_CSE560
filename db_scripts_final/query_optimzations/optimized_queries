@@ -20,7 +20,7 @@ Ingredient_counts (recipe_id, incredient_count) AS (
 	from recipeingredientpivot RIP
 	group by recipe_id_fk
 )
-select * from recipe R 
+select R.recipe_id_pk, R.name from recipe R 
 inner join Calorie_counts CC on CC.recipe_id = R.recipe_id_pk
 inner join Ingredient_counts IC on IC.recipe_id = R.recipe_id_pk
 where R.prep_time <= prep_time
