@@ -4,11 +4,8 @@ CREATE INDEX nutrient_pk_idx on nutrient(nutrient_id_pk);
 CREATE INDEX recipeingredient_idx on recipeingredientpivot(ingredient_id_fk, recipe_id_fk);
 CREATE INDEX ingredientnutrient_idx on ingredientnutrientpivot(ingredient_id_fk, nutrient_id_fk);
 
-
-
-
-
-
-
-
+CREATE INDEX customer_idx on customer(cust_id_pk, choice);
+CREATE INDEX allergylabel_idx on allergylabel(cust_id_fk, label_id);
+CREATE INDEX recipelabels_idx on recipelabelspivot(recipe_id_fk, label_id_fk);
+CREATE INDEX preferences_idx on preferences(cust_id_fk);
 
