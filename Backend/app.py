@@ -11,7 +11,8 @@ conn = psycopg2.connect(
     host="localhost",
     database="recipeDB",
     user="postgres",
-    password="pexplorer"
+    # password="pexplorer"
+    password="admin"
 )
 
 
@@ -50,8 +51,8 @@ def get_data():
         for r in res:
             final_result.append({
                 'param1': 'Recipe Name: ' + r['name'],
-                'param2': 'Sugar Count: ',
-                'param3': sqlquery,
+                'param2': '',
+                'param3': sqlquery + str(r['sugar_count']),
                 'param4': r['sugar_count']
             })
     elif query_arg == 'low_calorie_meal':
@@ -64,6 +65,8 @@ def get_data():
         limit 10;
         """
         res = execute_query(sqlquery)
+        print('low_calorie_meal')
+        print(res)
         for r in res:
             final_result.append({
                 'param1': 'Recipe Name: ' + r['name'],
@@ -83,8 +86,8 @@ def get_data():
         res = execute_query(sqlquery)
         for r in res:
             final_result.append({
-                'param1': 'Name: Nutrient',
-                'param2': 'Nutrient: ',
+                'param1': 'Nutrient Name: ' +r['name'],
+                'param2': ' ',
                 'param3': sqlquery,
                 'param4': r['name']
             })

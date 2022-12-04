@@ -1,3 +1,5 @@
+-- To be run in case of dropping all tables
+
 DROP TABLE IngredientNutrientPivot;
 DROP TABLE RecipeLabelsPivot;
 DROP TABLE RecipeIngredientPivot;

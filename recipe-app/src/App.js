@@ -37,21 +37,21 @@ function App() {
           <Dropdown.Item eventKey="recipe_sugar">
             Get Recipe Containing Highest Sugar
           </Dropdown.Item>
-          <Dropdown.Item eventKey="low_calorie_meal">
+          {/* <Dropdown.Item eventKey="low_calorie_meal">
             Get Top 10 Low Calorie Meals
-          </Dropdown.Item>
+          </Dropdown.Item> */}
           <Dropdown.Item eventKey="common_macro_nutrient">
             Get Most Common Macro Nutrient Found In All Ingredients
           </Dropdown.Item>
           <Dropdown.Item eventKey="quickest_breakfasts">
             Get Top 5 Quick Breakfasts
           </Dropdown.Item>
-          <Dropdown.Item eventKey="recipe_least_ingredients">
+          {/* <Dropdown.Item eventKey="recipe_least_ingredients">
             Retreiving a recipe with Least Number of Ingredients
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="customer_non_veg">
+          </Dropdown.Item> */}
+          {/* <Dropdown.Item eventKey="customer_non_veg">
             Get All Customers that dont eat Non-Veg
-          </Dropdown.Item>
+          </Dropdown.Item> */}
           <Dropdown.Item eventKey="recipe_highest_servings">
             Get 5 Recipes Full Meal Recipes with Highest Servings
           </Dropdown.Item>

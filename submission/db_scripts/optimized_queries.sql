@@ -1,0 +1,124 @@
+-- 1. Get Recipes for a customer with his/her preferences and without his/her allergies
+WITH 
+myconstants (cust_id) as (
+   values (1)
+),
+Prefs (prep_time, ingredient_count, calorie_count) AS (
+	select prep_time, ingredient_count, calories_count 
+	from Preferences, myconstants 
+	where cust_id_fk = cust_id
+),
+Calorie_counts (recipe_id, calorie_count) AS (
+	select R.recipe_id_pk, SUM(I.calorie_per_unit * P.num_of_units) as Calorie_Count
+	from Recipe R
+	inner join RecipeIngredientPivot P on R.recipe_id_pk = P.recipe_id_fk
+	inner join Ingredient I on I.ingredient_id_pk = P.ingredient_id_fk
+	group by R.recipe_id_pk
+),
+Ingredient_counts (recipe_id, incredient_count) AS (
+	select RIP.recipe_id_fk, count(ingredient_id_fk) 
+	from recipeingredientpivot RIP
+	group by recipe_id_fk
+)
+select R.recipe_id_pk, R.name from recipe R 
+inner join Calorie_counts CC on CC.recipe_id = R.recipe_id_pk
+inner join Ingredient_counts IC on IC.recipe_id = R.recipe_id_pk
+where R.prep_time <= prep_time
+and incredient_count <= IC.incredient_count
+and CC.calorie_count <= calorie_count
+and R.recipe_id_pk not in (
+	select RLP.recipe_id_fk
+	from RecipeLabelsPivot RLP
+	inner join Label L on L.label_id_pk = RLP.label_id_fk
+	inner join Allergylabel A on A.label_id = L.label_id_pk, myconstants
+	where A.cust_id_fk = cust_id
+);
+
+
+
+-- 2. Get recipe containing highest Sugar
+Select R.name, SUM(RIP.num_of_units * INP.quantity) as sugar_count
+from recipe R
+inner join RecipeIngredientPivot RIP on R.recipe_id_pk = RIP.recipe_id_fk
+inner join Ingredient I on I.ingredient_id_pk = RIP.ingredient_id_fk
+inner join IngredientNutrientPivot INP on I.ingredient_id_pk = INP.ingredient_id_fk
+inner join Nutrient N on N.nutrient_id_pk = INP.nutrient_id_fk
+where N.name = 'Sugars'
+group by R.name
+order by sugar_count desc
+limit 1
+
+
+
+-- 3. Get top 10 low calorie meals
+select R.recipe_id_pk, R.name, (I.calorie_per_unit * P.num_of_units) as Calorie_Count  
+from Recipe R
+inner join RecipeIngredientPivot P on R.recipe_id_pk = P.recipe_id_fk
+inner join Ingredient I on I.ingredient_id_pk = P.ingredient_id_fk
+order by (I.calorie_per_unit * P.num_of_units) desc
+limit 10;
+
+
+-- 4. Get most common macro nutrient found in all ingredients
+select N.name
+from Nutrient N
+inner join IngredientNutrientPivot P on N.nutrient_id_pk = P.nutrient_id_fk
+group by N.name
+order by count(1)
+limit 1
+
+
+-- 5. Get top 5 quickest breakfasts
+select recipe_id_pk, name
+from recipe
+where meal_type = 'Breakfast'
+order by servings desc
+limit 5
+
+
+-- 6. Get count of High-Fiber recipes 
+select count(1) as High_fiber_recipes_count
+from recipe R
+inner join RecipeLabelsPivot RLP on R.recipe_id_pk = RLP.recipe_id_fk 
+inner join Label L on L.label_id_pk = RLP.label_id_fk
+where L.name = 'High-Fiber'
+
+
+-- 7. Retreiving a receipe with least number of ingredients
+select * from recipe 
+where recipe_id_pk in (
+	select recipe_id_fk
+	from recipeingredientpivot 
+	group by recipe_id_fk
+	order by count(ingredient_id_fk) 
+	limit 1
+);
+
+
+-- 8. Retreiving incredient names that have carbs present
+select I.Name from ingredient I 
+inner join IngredientNutrientPivot P on I.ingredient_id_pk = P.ingredient_id_fk
+inner join Nutrient N on N.nutrient_id_pk = P.nutrient_id_fk
+where N.name = 'Carbohydrates'
+
+
+-- 9. Selecting all customers that dont eat non veg
+select C.fname, C.lname, L.name as Does_Not_Like 
+from customer C
+inner join allergylabel A on C.cust_id_pk = A.cust_id_fk
+inner join Label L on L.label_id_pk = A.label_id
+where L.name = 'Non Veg'
+
+
+-- 10. Get all Chicken Recipes
+select name, description, meal_type 
+from recipe 
+where name like '%Chicken%';
+
+
+-- 11. get 5 recipe Full meal recipes with highest servings
+select name, servings
+from recipe
+where meal_type = 'Full-Meal'
+order by servings desc
+limit 5
